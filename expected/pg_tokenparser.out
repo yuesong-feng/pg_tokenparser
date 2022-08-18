@@ -1,0 +1,20 @@
+CREATE EXTENSION pg_tokenparser;
+SELECT alias, description, token FROM ts_debug('my_cfg', 'token_01 tagset-02 tagset03 token:04');
+ alias |  description  |   token   
+-------+---------------+-----------
+ word  | Word          | token_01
+ blank | Space symbols |  
+ word  | Word          | tagset-02
+ blank | Space symbols |  
+ word  | Word          | tagset03
+ blank | Space symbols |  
+ word  | Word          | token:04
+(7 rows)
+
+SELECT to_tsvector('my_cfg', 'token_01 tagset-02 tagset03 token:04');
+                     to_tsvector                      
+------------------------------------------------------
+ 'tagset-02':2 'tagset03':3 'token:04':4 'token_01':1
+(1 row)
+
+DROP EXTENSION pg_tokenparser;
