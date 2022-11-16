@@ -72,7 +72,7 @@ CREATE TEXT SEARCH PARSER name (
 编译、安装插件后，我们就可以使用我们自定义的分词规则：
 
 ```sql
-yuesong=# SELECT alias, description, token FROM ts_debug('my_cfg', 'token_01 tagset-02 tagset03 token:04');
+yuesong=# SELECT alias, description, token FROM ts_debug('my_parser', 'token_01 tagset-02 tagset03 token:04');
  alias |  description  |   token   
 -------+---------------+-----------
  word  | Word          | token_01
@@ -84,7 +84,7 @@ yuesong=# SELECT alias, description, token FROM ts_debug('my_cfg', 'token_01 tag
  word  | Word          | token:04
 (7 rows)
 
-yuesong=# SELECT to_tsvector('my_cfg', 'token_01 tagset-02 tagset03 token:04');
+yuesong=# SELECT to_tsvector('my_parser', 'token_01 tagset-02 tagset03 token:04');
                      to_tsvector                      
 ------------------------------------------------------
  'tagset-02':2 'tagset03':3 'token:04':4 'token_01':1

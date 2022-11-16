@@ -3,4 +3,3 @@ comment = 'PostgreSQL self-defined token parser'
 default_version = '1.0'
 module_pathname = '$libdir/pg_tokenparser'
 relocatable = true
-trusted = true

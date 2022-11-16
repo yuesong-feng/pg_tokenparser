@@ -1,9 +1,7 @@
 # contrib/pg_tokenparser/Makefile
 
 MODULE_big = pg_tokenparser
-OBJS = \
-	$(WIN32RES) \
-	pg_tokenparser.o
+OBJS = pg_tokenparser.o $(WIN32RES) 
 PGFILEDESC = "pg_tokenparser - self-defined token parser"
 
 PG_CPPFLAGS = -I$(libpq_srcdir)
